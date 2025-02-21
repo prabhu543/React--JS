@@ -32,7 +32,7 @@ h2{
   /* background-color: green; */
   padding: 20px;
   margin-bottom: 12px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 input{
@@ -55,31 +55,45 @@ button{
 .contactDiv{
   /* background-color: #000; */
   padding: 20px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
-
+.list{
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 .user{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border:1px solid gray;
   padding: 5px 10px;
-  margin-bottom: 15px; /* use display flex instead of this*/
+
 }
 .profile{
   width: 140px;
   /* background-color: red; */
   display: flex;
   align-items: center;
-  justify-content: space-around; /* instead use gaps*/
+  gap: 10px; /* use this instead of margin*/
 }
 img{
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #fff;
+  object-fit: cover;
+  /* background-color: #fff; */
 }
 
-
+.buttons{
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  font-size: 20px;
+  padding: 5px;
+}
 
 
 
