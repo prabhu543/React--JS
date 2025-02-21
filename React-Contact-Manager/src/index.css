@@ -14,12 +14,15 @@ body{
 
 .container{
 
-  width: 90vw;
+  width: 95vw;
   min-width: 325px;
   /* not needed*/
   /* height: 80vh; */
   background-color: rgb(13, 62, 169);
   padding: 20px;
+  border-radius: 4px;
+  max-height: 80vh;
+  overflow: hidden;
 }
 h1{
   margin-bottom: 25px;
@@ -30,7 +33,7 @@ h2{
 }
 .addContact{
   /* background-color: green; */
-  padding: 20px;
+  padding: 10px;
   margin-bottom: 12px;
   /* border: 1px solid red; */
 }
@@ -54,15 +57,10 @@ button{
 
 .contactDiv{
   /* background-color: #000; */
-  padding: 20px;
+  padding: 10px;
   /* border: 1px solid red; */
 }
-.list{
-  /* background-color: blue; */
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+
 .user{
   display: flex;
   justify-content: space-between;
@@ -95,10 +93,22 @@ img{
   padding: 5px;
 }
 
-
+h3{
+  font-size: 17px;
+}
+p{
+  font-size: 14px;
+}
 
 @media (min-width :550px ) {
   .container{
     width: 450px;
   }
+}
+
+.user-container {
+  padding: 10px;
+}
+label{
+  text-transform: capitalize;
 }

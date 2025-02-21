@@ -1,12 +1,10 @@
-// import React from 'react'
+import Input from './Input';
 
 const Inputs = () => {
   return (
     <div className="inputs">
-      <label htmlFor="name">Name</label>
-      <input id="name" type="text" placeholder="Enter your Name"/>
-      <label htmlFor="email">Email</label>
-      <input id="email" type="email" placeholder="Enter your Email"/>
+      <Input name ="name" detail = "text"/>
+      <Input name ="email" detail = "email"/>
     </div>
   )
 }

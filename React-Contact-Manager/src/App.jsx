@@ -1,30 +1,18 @@
-// import React from 'react'
-import User from "./Components/User" ;
-import H2Header2 from "./Components/H2Header2" ;
-import H2Header1 from "./Components/H2Header1" ;
+import Users from "./Components/Users" ;
+import AddContact from "./Components/AddContact" ;
 
 const App = () => {
   return (
     <div className="container">
       <h1>Contact Manager</h1>
-      <div className="addContact">
-        <H2Header1/>
-        
-        <button>Add</button>
-      </div>
-
+      <AddContact/>
       <hr />
-
       <div className="contactDiv">
-        <H2Header2/>
-        <div className="list">
-          <User/>
-          <User/>
-        </div>
+        <h2>Contact List</h2>
+        <Users/>
       </div>
     </div>
   )
 }
 
-export default App
-
+export default App;
