@@ -1,15 +1,11 @@
-// import React from 'react'
 import User from "./User";
-const Users = () => {
-
-  const usersInfo = [
-    { name: "Alice Johnson", email: "alice@example.com" },
-    { name: "Bob Smith", email: "bob@example.com" }
-  ];
+import EmptySet from "./EmptySet" ;
+const Users = ({ userInfo ,userInfoLength }) => {
   
   return (
     <div>
-      {usersInfo.map((info , index) => {
+      <EmptySet userInfoLength = {userInfoLength}/>
+      {userInfo.map((info , index) => {
         return (
         <User key= {index} 
         name = {info.name} 
@@ -20,4 +16,4 @@ const Users = () => {
   )
 }
 
-export default Users
+export default Users;

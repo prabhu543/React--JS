@@ -1,11 +1,12 @@
-import Inputs from "./Inputs";
+import Input from "./Input";
+// import { useState } from "react";
 
-const AddContact = () => {
+const AddContact = ({ handleClick }) => {
+
   return (
     <div className="addContact">
       <h2>Add Contact</h2>
-      <Inputs/>
-      <button>Add</button>
+      <Input handleClick = {handleClick}/>
     </div>
   )
 }
