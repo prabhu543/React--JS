@@ -1,0 +1,81 @@
+*{
+  padding: 0;margin: 0;box-sizing: border-box;
+  /* color: #fff; */
+}
+
+.body{
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  
+  display: grid;
+  place-items: center;
+}
+.container
+{
+  background-color: #fff;
+  width: 90%;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 3px;
+}
+.inputs{
+  /* background-color: red; */
+  padding: 10px;
+  border: 1px solid rgba(32, 32, 32, 0.382);
+  /* padding: 10px; */
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+input{
+  width: 100%;
+  /* padding: 20px; */
+  padding: 15px 20px;
+  font-size: 20px;
+  /* border-radius: 10px; */
+  border: 1px solid black;
+  outline: none;
+  border-radius: 2px;
+  color: rgb(0, 0, 0);
+  text-align: right;
+}
+.buttons{
+  width: 100%;
+  
+  border: 1px solid rgba(32, 32, 32, 0.382);
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(5,50px);
+
+  gap: 10px;
+  padding: 10px;
+
+}
+button{
+  font-size: 20px;
+}
+button:nth-last-child(1)
+{
+  height: 50px;
+  grid-column: span 3;
+}
+@media (min-width:440px)
+{
+  .buttons{
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(5,60px);
+  }
+  .container{
+    /* height: 500px; */
+    width: 380px;
+  }
+  .inputs{
+    padding: 10px;
+  }
+
+}
