@@ -1,34 +1,33 @@
 import { IoIosAddCircleOutline } from "react-icons/io";
-import { useState } from "react";
+import { useRef } from "react";
 const Todo = ({ addText }) => {
 
-  const [text , setText] = useState("");
-  const [date , setDate] = useState("");
+  const textRef = useRef("");
+  const dateRef = useRef("");
 
   const handleClick = () => {
-    if (text.trim() === "" || date === "") {
+    if (textRef.current.value.trim() === "" || dateRef.current.value === "") {
       alert("Please enter valid text and date");
       return;
     }
-    addText(text, date);
-    setText("");  // Reset input
-    setDate("");
+    addText(textRef.current.value, dateRef.current.value);
+    textRef.current.value = "";
+    dateRef.current.value = "";
   };
 
 
   return (
       <div className="todo">
           <input type="text" placeholder="enter item here..." className="Input_text"
-          value = {text}
-          onChange={(event) => setText(event.target.value)}
+          ref = {textRef}
             />
           <input type="date" name="" id="" className="Input_date" 
-          value = {date}
-          onChange={(event) => setDate(event.target.value)}
+          ref = {dateRef}
           />
           <button className="add_btn"
           onClick={handleClick}
-          ><IoIosAddCircleOutline /> Add</button>
+          >
+            <IoIosAddCircleOutline /> Add</button>
       </div>
   )
 }
