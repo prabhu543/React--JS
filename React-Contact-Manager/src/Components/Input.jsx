@@ -1,32 +1,34 @@
-import { useState } from "react";
+import { useRef } from "react";
 const Input = ({ handleClick }) => {
 
-  const [userName , setName ] = useState("");
-  const [userEmail , setEmail ] = useState("");
+  const userName = useRef("");
+  const userEmail = useRef("");
 
   const buttonClick = (userName , userEmail) => {
-    if(userName.trim() === "" || userEmail.trim() === "") 
+    let name = userName.current.value;
+    let email = userEmail.current.value;
+
+    if(userName.current.value.trim() === "" || userEmail.current.value.trim() === "") 
       return alert("Please fill all the fields");
-    handleClick(userName , userEmail);
-    setName("");
-    setEmail("");
+    
+    handleClick( name , email);
+    userName.current.value = "";
+    userEmail.current.value = "";
   }
   return (
     <>
       <label htmlFor="Name">Name</label>
       <input id="Name"  type="text" placeholder={`Enter your name......`}
-      onChange={(event) => setName(event.target.value)}
-      value={userName}
+      ref = {userName}
       required={true}
       />
       <label htmlFor="email">Email</label>
       <input id="email"  type="text" placeholder={`Enter your email......`}
-      onChange={(event) => setEmail(event.target.value)}
-      value={userEmail}
+      ref={userEmail}
       required={true}
       />
       <button
-      onClick={() => buttonClick(userName , userEmail)}
+      onClick={() => buttonClick(userName, userEmail)}
       >Add</button>
     </>
   )

@@ -1,6 +1,6 @@
 import User from "./User";
 import EmptySet from "./EmptySet" ;
-const Users = ({ userInfo ,userInfoLength }) => {
+const Users = ({ userInfo ,userInfoLength , deleteBtn }) => {
   
   return (
     <div>
@@ -10,6 +10,7 @@ const Users = ({ userInfo ,userInfoLength }) => {
         <User key= {index} 
         name = {info.name} 
         email = {info.email}
+        deleteBtn = {deleteBtn}
         />);
       })}
     </div>

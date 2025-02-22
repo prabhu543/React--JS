@@ -1,7 +1,13 @@
 import { RiDeleteBin4Line } from "react-icons/ri";
 import { FaRegEdit } from "react-icons/fa";
 
-const User = ({name , email }) => {
+const User = ({name , email , deleteBtn }) => {
+
+  const deleteUser = (email) => {
+    console.log(`${email} from inner compo`);
+    deleteBtn(email);
+  }
+
   return (
     <div className="user-container">
       <div className="user">
@@ -14,7 +20,7 @@ const User = ({name , email }) => {
         </div>
         <div className="buttons">
           <FaRegEdit />
-          <RiDeleteBin4Line />
+          <RiDeleteBin4Line onClick={() => deleteUser(email)} />
         </div>
       </div>
     </div>
