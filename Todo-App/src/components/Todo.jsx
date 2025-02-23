@@ -1,7 +1,11 @@
 import { IoIosAddCircleOutline } from "react-icons/io";
-import { useRef } from "react";
-const Todo = ({ addText }) => {
+import { useContext,useRef } from "react";
+import { TodoItemsContext } from "../store/todo-list-store"
 
+const Todo = () => {
+  const {addNewTodo} = useContext(TodoItemsContext);
+
+  
   const textRef = useRef("");
   const dateRef = useRef("");
 
@@ -10,7 +14,7 @@ const Todo = ({ addText }) => {
       alert("Please enter valid text and date");
       return;
     }
-    addText(textRef.current.value, dateRef.current.value);
+    addNewTodo(textRef.current.value, dateRef.current.value);
     textRef.current.value = "";
     dateRef.current.value = "";
   };

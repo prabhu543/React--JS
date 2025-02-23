@@ -1,9 +1,15 @@
 // import React from 'react'
+import { useContext } from 'react';
+import { TodoItemsContext } from '../store/todo-list-store';
+
 import Style from './Error.module.css'
-const ErrorHandled = ({text}) => {
+const ErrorHandled = () => {
+
+  const {todo} = useContext(TodoItemsContext);
+
   return (
     <div className={`${Style.error}`}>
-      {text === 0 && <p>Enter some food to get started</p>}
+      { todo.length === 0 && <p>Enter some food to get started</p>}
     </div>
   )
 }
