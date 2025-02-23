@@ -1,5 +1,7 @@
-import { useRef } from "react";
-const Input = ({ handleClick }) => {
+import { useRef , useContext} from "react";
+import { UserDataContext } from "../store/UserData";
+const Input = () => {
+  const { addNewUser } = useContext(UserDataContext);
 
   const userName = useRef("");
   const userEmail = useRef("");
@@ -11,7 +13,7 @@ const Input = ({ handleClick }) => {
     if(userName.current.value.trim() === "" || userEmail.current.value.trim() === "") 
       return alert("Please fill all the fields");
     
-    handleClick( name , email);
+    addNewUser( name , email);
     userName.current.value = "";
     userEmail.current.value = "";
   }

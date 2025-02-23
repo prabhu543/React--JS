@@ -1,12 +1,11 @@
 import { RiDeleteBin4Line } from "react-icons/ri";
 import { FaRegEdit } from "react-icons/fa";
+import { useContext } from "react";
+import { UserDataContext } from "../store/UserData";
 
-const User = ({name , email , deleteBtn }) => {
+const User = ({name , email  }) => {
+  const { deleteUser } = useContext(UserDataContext);
 
-  const deleteUser = (email) => {
-    console.log(`${email} from inner compo`);
-    deleteBtn(email);
-  }
 
   return (
     <div className="user-container">
