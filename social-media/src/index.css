@@ -1,0 +1,19 @@
+.main-container{
+  display: flex;
+}
+.sideBar{
+  min-height: 800px; /* prefer 800px*/
+}
+.content-container{
+  width: 100%;
+}
+.post-card{
+  margin: 25px 50px;
+}
+.card-reaction{
+  float: right;
+  color: rgba(0, 0, 0, 0.69);
+}
+.tagBtn{
+  margin-right: 15px;
+}
