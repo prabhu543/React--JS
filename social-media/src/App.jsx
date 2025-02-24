@@ -10,7 +10,7 @@ import { useState } from "react";
 import PostListProvider from "./store/Posts-List-store";
 
 const App = () => {
-  const [selectedTab , setSelectedTab] = useState("Home"); {/* Default tab is Home , tab can be Home or Create-Post */} {/** and if space is also included then it is error so use trim() */}
+  const [selectedTab , setSelectedTab] = useState("Create-Post"); {/* Default tab is Home , tab can be Home or Create-Post */} {/** and if space is also included then it is error so use trim() */}
   return (
     <PostListProvider>
       <div className="main-container">
