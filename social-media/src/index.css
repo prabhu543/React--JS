@@ -7,23 +7,20 @@
 .content-container{
   width: 100%;
 }
-.post-card{
-  margin: 25px 50px;
-}
+
 .card-reaction{
   float: right;
   color: rgba(0, 0, 0, 0.69);
 }
 .tagBtn{
   margin-right: 15px;
+  margin-bottom: 5px;
 }
 
 .button{
-  /* background-color: red; */
   display: flex;
   justify-content: flex-end;
   padding: 5px;
-
 }
 .delete-icon{
   font-size: 20px;
@@ -54,4 +51,13 @@
 width: 80%;
 margin-top: 50px;
 margin-left: 10%;
+}
+.post-list{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+.post-card{
+  margin:25px;
 }
