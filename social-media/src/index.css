@@ -52,12 +52,13 @@ width: 80%;
 margin-top: 50px;
 margin-left: 10%;
 }
-.post-list{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
-}
+
 .post-card{
   margin:25px;
+}
+.welcomeHead{
+  margin: 100px auto;
+}
+.spinner{
+  margin: 10%;
 }

@@ -1,10 +1,9 @@
 // import React from 'react'
 
-const WelcomeMsg = ({onGetPost}) => {
+const WelcomeMsg = () => {
   return (
     <center>
-      <h3>No Posts. Please create a post.</h3>
-      <button type="button" className="btn btn-primary" onClick={onGetPost}>Get Posts from Server</button>
+      <h3 className="welcomeHead">No Posts. Please create a post.</h3>
     </center>
   )
 }
