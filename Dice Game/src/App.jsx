@@ -11,8 +11,8 @@ const App = () => {
   }
   return (
     <>
-      {gamePage ? <GamePage/> : <Home togglePage = {togglePage}/> }
-      {/* <GamePage/> */}
+      {/* {gamePage ? <GamePage/> : <Home togglePage = {togglePage}/> } */}
+      <GamePage/>
     </>
   )
 }
