@@ -7,15 +7,19 @@ html,body{
   font-family: 'Poppins', sans-serif;
 }
 body{
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
+  background-image: url('https://s3-alpha-sig.figma.com/img/8ec1/8041/d1c7823a13dc2a1623370d1198d5d263?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Xoq7Bq-X8ZlrCF40idYvn6kqxRSqpcgH-8tRaVHNioIO20JAV3A4AYMIxfJPWG99i3yx9xO0nez7k1ykUICDXXXb93OHqglBfhA8o~KkXQJLovYhjP2baYeUUwV9fYgNUj7d5yLQVu-SWAF9sv3GWLjGYPn5R-eQ7UVvq6axnuBxhSz~7No2DsLPpJQ4q1kpD1Spk6Mk-vG5bketQh4WwinOE7ETLv0Ws1qDWeFMkswoVMQqv2X2zTbzDiEn6nDERgIcoujohQM7K9gJJORKILx8x1y-1sWcXmWcBtMaTGPQhdLKkxUIoqlCiw63KfZov5zAyUAc1bORSytC2vukWg__');
+}
+span{
+  color:#ff4343;
 }
 .header{
-  background-color: gray;
-  padding: 20px 15px;
+  background-color: rgba(0, 0, 0, 0.789);
+  padding: 8px 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 20px;
+  gap: 15px;
 }
 .title{
   padding: 10px;
@@ -27,7 +31,7 @@ body{
   justify-content: space-between;
 }
 .title h1{
-  font-size: 2.3rem;
+  font-size: 2.5rem;
   color: #fff;
 }
 .title input{
@@ -45,11 +49,13 @@ body{
 }
 
 .btn-container{
+  max-width: 500px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   gap: 10px;
   /* background-color: green; */
+  margin: 10px auto;
 }
 .btn-container button{
   padding: 10px 15px;
@@ -60,4 +66,63 @@ body{
   font-weight: 700;
   cursor: pointer;
   outline: none;
+}
+
+.hero{
+  /* background-color: red; */
+  width: 100%;
+  height: calc(100vh - 208px);
+  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.food-container{
+  width: 320px;
+  background-color: rgba(32, 34, 32, 0.768);
+  padding: 10px;
+  border-radius: 10px;
+  max-height: 200px;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+
+}
+.hero img{
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+.hero .details{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.price-btn{
+  align-self: flex-end;
+  background-color: #ff4343;
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  width:fit-content;
+}
+
+@media (min-width: 500px) {
+  .title{
+    padding: 0 5%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .title input{
+    width: 25%;
+  }
 }
