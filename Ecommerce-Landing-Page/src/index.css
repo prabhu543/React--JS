@@ -29,20 +29,7 @@ body{
   height: 42.75px;
   object-fit: cover;
 }
-ul{
-  display: flex;
-  list-style: none;
-  gap: 35px;
-  font-size: 16px;
-  font-weight: 600;
-  font-family: poppins;
-}
-a{
-  text-decoration: none;
-  color: #2e2e2e;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-}
+
 .btn{
   background-color: #d01c28;
   color: #fff;
@@ -76,7 +63,7 @@ section{
   display: grid;
   place-items: center;
   grid-template-columns: 1fr 1fr;
-  padding: 10px;
+  padding: 5px;
 
 }
 .text-section{
@@ -86,21 +73,9 @@ section{
   justify-content: space-between;  /* change if needed*/
   /* background-color: aqua; */
 }
-.text-section h1{
-  font-weight: 800;
-  font-size: 5.6rem;
-  line-height: 75px;
-}
+
 .best{
   color: #d01c28;
-}
-.text-section .description{
-  font-size: 14px;
-  width: 60%;
-  line-height: 20px;
-  color: #5a5959;
-  line-height: 22px;
-  font-weight: 600;
 }
 .shop_now_btn{
   margin-right: 40px;
@@ -121,11 +96,11 @@ section{
   padding: 10px;
   /* background-color: blue;  */
 }
-.image-section img{
-  width:95%;
+.image-section img {
+  width: 95%;
   height: 95%;
   object-fit: cover;
-  /* background-color: yellow; */
+  filter: drop-shadow(10px 25px 10px rgba(0, 0, 0, 0.5));
 }
 
 .brand-icons{
