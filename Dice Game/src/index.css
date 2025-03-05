@@ -10,6 +10,7 @@ html, body {
   height: 100%;
   width: 100%;
   font-family: "Poppins", sans-serif;
+  background-color: #dbd4d499;
 }
 
 /* Main Section */
@@ -18,7 +19,7 @@ html, body {
   height: 100vh;
   display: grid;
   place-items: center;
-  background-color: #dbd4d499;
+  
 }
 
 /* Home Box */
@@ -84,6 +85,7 @@ button:active {
   justify-content: space-evenly;
   flex-direction: column;
   padding: 20px;
+  /* background-color: green; */
 }
 
 /* Header */
@@ -94,6 +96,7 @@ button:active {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  /* background-color: green; */
 }
 
 .header .score {

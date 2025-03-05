@@ -3,13 +3,14 @@ import styled from "styled-components";
 
 const Error = () => {
   return (
-    <Error className="error">
-      <h2>You have not Selected any Number</h2>
-    </Error>
+      <Head>You have not Selected any Number</Head>
   )
 }
 
 export default Error
-const Error = styled.div`
-  color : red;
+
+const Head = styled.div`
+  color:red;
+  text-align:right;
+  width:100%;
 `;
