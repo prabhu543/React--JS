@@ -12,5 +12,7 @@ export default Error
 const Head = styled.div`
   color:red;
   text-align:right;
-  width:100%;
+  position:fixed;
+  top:8%;
+  right:8%;
 `;

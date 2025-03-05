@@ -1,15 +1,18 @@
 import { createContext , useState } from "react";
 
-export const DiceGameContext= createContext();
+export const DiceGameContext= createContext({});
 
 const DiceGameContextProvider = ({ children }) =>{  
+  
   const [score, setScore] = useState(0); // Stores the game score
   const [selected, setSelected] = useState(null); // Tracks the selected number
   
+  // to reset the score
   const handleResetScore = () => {
     setScore(0);
   };
 
+  // to handle score 
   const handleScore = (value) => {
     setScore((prevScore) => (selected === null ? value : prevScore + value));
   };

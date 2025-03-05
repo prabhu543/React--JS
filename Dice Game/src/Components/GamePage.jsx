@@ -1,17 +1,17 @@
-import React, { useContext } from 'react';
-import styled from "styled-components";
 import Error from "./Error";
 import Score from "./Score";
 import Main from "./Main";
 
-import {DiceGameContext} from "../Store/Context"
+import styled from "styled-components"; // for css 
+
+import React, { useContext } from 'react'; // react hooks
+import {DiceGameContext} from "../Store/Context"; // a store of all important functions and other 
+
 const GamePage = () => {
 
-const {score , selected , handleResetScore , handleScore , handleSelect} = useContext(DiceGameContext) ;
-
-
+  const {score , selected , handleResetScore , handleScore , handleSelect} = useContext(DiceGameContext) ;
+  
   const array = [1, 2, 3, 4, 5, 6];
-
 
   return (
     <div className="game-page">
