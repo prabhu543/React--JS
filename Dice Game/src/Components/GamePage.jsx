@@ -1,27 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import styled from "styled-components";
 import Error from "./Error";
 import Score from "./Score";
 import Main from "./Main";
 
+import {DiceGameContext} from "../Store/Context"
 const GamePage = () => {
-  const [score, setScore] = useState(0); // Stores the game score
-  const [selected, setSelected] = useState(null); // Tracks the selected number
 
-  const handleResetScore = () => {
-    setScore(0);
-  };
+const {score , selected , handleResetScore , handleScore , handleSelect} = useContext(DiceGameContext) ;
 
-  const handleScore = (value) => {
-    setScore((prevScore) => (selected === null ? value : prevScore + value));
-  };
 
   const array = [1, 2, 3, 4, 5, 6];
 
-  // Function to toggle the selected number
-  const handleSelect = (item) => {
-    setSelected((prevSelected) => (prevSelected === item ? null : item));
-  };
 
   return (
     <div className="game-page">
