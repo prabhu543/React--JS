@@ -1,34 +1,47 @@
 // import React from 'react'
-import { MdChat } from "react-icons/md";
-import { IoMdCall } from "react-icons/io";
+import Button from "./Button"
+import Form from "./Form"
+import ContactImage from "./ContactImage"
+
+import styled from "styled-components"
+
 const Contact = () => {
   return (
-    <div className="hero-section">
+    <Hero>
       <div className="text">
-        <h1>CONTACT US</h1>
-        <p>LET’S CONNECT: WE’RE HERE TO HELP, AND WE’D LOVE TO HEAR FROM YOU! WHETHER YOU HAVE A QUESTION, COMMENT, OR JUST WANT TO CHAT , YOU CAN REACH OUT TO US THROUGH THE CONTACT FORM OF THIS PAGE, OR BY PHONE, EMAIL, OR SOCIAL MEDIA. 
-        </p>
+        <Heading>CONTACT US</Heading>
+        <Paragraph>LET’S CONNECT: WE’RE HERE TO HELP, AND WE’D LOVE TO HEAR FROM YOU! WHETHER YOU HAVE A QUESTION, COMMENT, OR JUST WANT TO CHAT , YOU CAN REACH OUT TO US THROUGH THE CONTACT FORM OF THIS PAGE, OR BY PHONE, EMAIL, OR SOCIAL MEDIA. 
+        </Paragraph>
       </div>
       <div className="contact">
         <div className="container">
-          <div className="buttons">
-            <button className="btn"> <MdChat />VIA SUPPORT CHAT</button>
-            <button className="btn"> <IoMdCall />VIA CALL</button>
-            <button className="btn email-btn"> <MdChat />VIA EMAIL FORM</button>
-          </div>
-          <div className="inputs">
-            <input type="text" placeholder="Name" />
-            <input type="text" placeholder="Email" />
-            <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
-            <button className="btn submit-btn">Submit</button>
-          </div>
+          <Button/>
+          <Form/>
         </div>
-        <div className="images">
-          <img src="https://img.freepik.com/vecteurs-libre/service-24-7-illustration-concept_114360-7380.jpg" alt="" />
-        </div>
+        <ContactImage/>
       </div>
-    </div>
+    </Hero>
   )
 }
 
 export default Contact
+
+const Heading = styled.h1`
+  font-weight: 800;
+  font-size: 35px;
+`;
+const Paragraph = styled.p`
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 15px;
+  font-weight: 500;
+  max-width: 90%;
+  margin:10px 0;
+`;
+const Hero = styled.div`
+  width: 100%;
+  min-height: calc(100vh - 100px); /* Remaining space after header */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
