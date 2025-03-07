@@ -1,21 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HiMiniXMark } from "react-icons/hi2";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, updateDoc, doc } from "firebase/firestore";
 import { db } from "../config/firebase";
 
-const Modal = ({ onClose }) => {
+const Modal = ({ onClose, isUpdate, selectedContact }) => {
+
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
 
-  const addContact = async (contact) => {
-    event.preventDefault(); // Prevent default form submission
-    try{
-      const contactRef = collection(db , "Contacts");
-      await addDoc(contactRef , contact);
+  // Pre-fill input fields if updating
+  useEffect(() => {
+    if (isUpdate && selectedContact) {
+      setName(selectedContact.Name || "");
+      setEmail(selectedContact.Email || "");
     }
-    catch(error){
-      console.log(`error ${error} occurred"`)
+  }, [isUpdate, selectedContact]);
+
+  const handleSave = async (event) => {
+    event.preventDefault();
+
+    try {
+      if (isUpdate && selectedContact?.id) {
+        // Update existing contact
+        const contactRef = doc(db, "Contacts", selectedContact.id);
+        await updateDoc(contactRef, { Name, Email });
+        console.log("Contact updated successfully!");
+      } else {
+        // Add new contact
+        const contactRef = collection(db, "Contacts");
+        await addDoc(contactRef, { Name, Email });
+        console.log("New contact added successfully!");
+      }
+    } catch (error) {
+      console.error(`Error: ${error}`);
     }
+
+    onClose(); // Close modal after saving
   };
 
   return (
@@ -40,11 +60,9 @@ const Modal = ({ onClose }) => {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <button onClick={()=>{
-          onClose();
-          addContact({Name , Email});
-        }
-        }>Add Contact</button>
+        <button onClick={handleSave}>
+          {isUpdate ? "Update" : "Add"} Contact
+        </button>
       </div>
     </div>
   );

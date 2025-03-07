@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import useCustom  from "./customHooks/useCustom"
 import styled from "styled-components";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./config/firebase";
@@ -11,14 +12,8 @@ import Modal from "./Components/Modal";
 
 const App = () => {
   const [Contacts, setContacts] = useState([]);
-  const [isOpen, setOpen] = useState(false);
-
-  const onOpen = () => {
-    setOpen(true);
-  };
-  const onClose = () => {
-    setOpen(false);
-  };
+  
+  const {isOpen , onClose , onOpen} = useCustom();
 
 
   useEffect(() => {
