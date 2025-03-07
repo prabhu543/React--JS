@@ -84,7 +84,7 @@ body{
 .userDiv{
   width: 100%;
   padding: 10px;
-  background-color: yellow;
+  background-color: #FFEAAE;
   border-radius: 10px;
 
   display: flex;
@@ -103,17 +103,18 @@ body{
   /* background-color: red; */
   /* width: 10%; */
   font-size: 40px;
+  color: rgba(184, 62, 94, 0.816);
 }
 .icons{
   width: 20%;
   height: 100%;
   /* background-color: rgb(36, 126, 178); */
   /* width: 20%; */
-  font-size: 30px;
+  font-size: 28px;
 
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .contactForm{
 
@@ -126,5 +127,60 @@ body{
   transform: translate(-50%, 5%);
   backdrop-filter: blur(10px);
   padding: 20px;
-  /* background-color: rgba(255, 255, 255, 0.3); Transparent effect */
+  background-color: rgba(255, 255, 255, 0.3); 
+}
+.blur-div{
+  width: 90%;
+  height: 250px;
+  background-color: #fff;
+  padding: 10px;
+
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family:Arial, Helvetica, sans-serif;
+  /* justify-content: space-between; */
+  /* gap: ; */
+
+  z-index: 88;
+}
+.blur-div .close_icon{
+  /* background-color: red; */
+  width: 100%;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.blur-div .format{
+  width: 100%;
+  
+  /* background-color: yellow; */
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+label{
+  margin-bottom: 5px;
+}
+.format input{
+  /* width: 80%; */
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.format button{
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #000;
+  outline: none;
+  background-color: burlywood;
+  align-self: flex-end;
+  border-radius: 5px;
 }
