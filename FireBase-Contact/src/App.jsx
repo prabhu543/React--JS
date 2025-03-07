@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import useCustom  from "./customHooks/useCustom"
 import styled from "styled-components";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, onSnapshot } from "firebase/firestore";
 import { db } from "./config/firebase";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Header from "./Components/Header";
 import Input from "./Components/Input";
@@ -20,14 +23,17 @@ const App = () => {
     const getContacts = async () => {
       try {
         const contactsRef = collection(db, "Contacts");
-        const contactsSnapshot = await getDocs(contactsRef);
-        const contactList = contactsSnapshot.docs.map((doc) => {
-          return {
-            id: doc.id,
-            ...doc.data(),
-          };
-        });
-        setContacts(contactList);
+
+        onSnapshot(contactsRef,(snapShot)=>{
+          const contactList = snapShot.docs.map((doc) => {
+            return {
+              id: doc.id,
+              ...doc.data(),
+            };
+          });
+          setContacts(contactList);
+          return contactList;
+        })
       } catch (error) {
         console.log(error);
       }
@@ -50,8 +56,10 @@ const App = () => {
           })}
         </div>
         {isOpen && <Modal onClose={onClose}/>}
+        <ToastContainer
+        className={toast}
+        />
       </Main>
-
     </>
   );
 };

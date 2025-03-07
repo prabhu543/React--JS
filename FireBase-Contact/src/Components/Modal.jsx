@@ -3,6 +3,9 @@ import { HiMiniXMark } from "react-icons/hi2";
 import { collection, addDoc, updateDoc, doc } from "firebase/firestore";
 import { db } from "../config/firebase";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Modal = ({ onClose, isUpdate, selectedContact }) => {
 
   const [Name, setName] = useState("");
@@ -15,7 +18,6 @@ const Modal = ({ onClose, isUpdate, selectedContact }) => {
       setEmail(selectedContact.Email || "");
     }
   }, [isUpdate, selectedContact]);
-
   const handleSave = async (event) => {
     event.preventDefault();
 
@@ -24,12 +26,14 @@ const Modal = ({ onClose, isUpdate, selectedContact }) => {
         // Update existing contact
         const contactRef = doc(db, "Contacts", selectedContact.id);
         await updateDoc(contactRef, { Name, Email });
-        console.log("Contact updated successfully!");
+        onClose();
+        toast.success("Contact updated successfully!");
       } else {
         // Add new contact
         const contactRef = collection(db, "Contacts");
         await addDoc(contactRef, { Name, Email });
-        console.log("New contact added successfully!");
+        onClose();
+        toast.success("New contact added successfully!");
       }
     } catch (error) {
       console.error(`Error: ${error}`);

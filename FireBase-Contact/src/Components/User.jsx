@@ -5,6 +5,7 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import useCustom from "../customHooks/useCustom";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../config/firebase";
+import { toast } from 'react-toastify';
 
 import Modal from './Modal';
 
@@ -15,7 +16,7 @@ const User = ({ Contacts }) => {
   const deleteContact = async (id) => {
     try {
       await deleteDoc(doc(db, "Contacts", id));
-      console.log("Contact deleted successfully!");
+      toast.success("Contact deleted successfully!")
     } catch (error) {
       console.log(`Error: ${error} occurred`);
     }
