@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  margin: 0;padding: 0;box-sizing: border-box;
+}
+html,body{
+  height: 100%;
+  width: 100%;
+}
+body{
+  height: 100vh;
+  width: 100vw;
+  /* background-color: rgba(0, 0, 0, 0.789); */
+  overflow-x: hidden;
+
+  display: grid;
+  place-items: center;
+}
+.header{
+  height: 60px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  margin-bottom:15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.add{
+  /* background-color: yellow; */
+  width: 75%;
+  /* height: 80px; */
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  color: #fff;
+
+  display: flex;
+  gap: 15px;
+}
+.add input{
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 17px;
+}
+.add input::placeholder{
+  color: #ffffff74;
+  font-weight: 500;
+}
+.search-icon{
+  font-size: 25px;
+}
+.add-icon{
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 50%;
+  font-size: 30px;
+
+  display: grid;
+  place-items: center;
+}
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.hero{
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.userDiv{
+  width: 100%;
+  padding: 10px;
+  background-color: yellow;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.text{
+  /* background-color: rgb(183, 205, 183); */
+  width: 75%;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.profile_icon{
+  /* background-color: red; */
+  /* width: 10%; */
+  font-size: 40px;
+}
+.icons{
+  width: 20%;
+  height: 100%;
+  /* background-color: rgb(36, 126, 178); */
+  /* width: 20%; */
+  font-size: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.contactForm{
+
+  background-color: #cf1a1a;
+  width: 90%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 5%);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  /* background-color: rgba(255, 255, 255, 0.3); Transparent effect */
+}
