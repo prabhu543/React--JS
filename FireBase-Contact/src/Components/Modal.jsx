@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { HiMiniXMark } from "react-icons/hi2";
-import { collection, addDoc, updateDoc, doc } from "firebase/firestore";
+import { collection, addDoc, updateDoc, doc , getDocs } from "firebase/firestore";
 import { db } from "../config/firebase";
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -18,29 +18,59 @@ const Modal = ({ onClose, isUpdate, selectedContact }) => {
       setEmail(selectedContact.Email || "");
     }
   }, [isUpdate, selectedContact]);
+
   const handleSave = async (event) => {
     event.preventDefault();
-
+  
+    // Trim values to avoid spaces-only inputs
+    const trimmedName = Name.trim();
+    const trimmedEmail = Email.trim();
+  
+    // Validation: Check if fields are empty
+    if (!trimmedName || !trimmedEmail) {
+      toast.error("Name and Email cannot be empty!");
+      return;
+    }
+  
     try {
       if (isUpdate && selectedContact?.id) {
+        // If no changes are made, prevent unnecessary updates
+        if (selectedContact.Name === trimmedName && selectedContact.Email === trimmedEmail) {
+          toast.info("No changes detected.");
+          return;
+        }
+  
         // Update existing contact
         const contactRef = doc(db, "Contacts", selectedContact.id);
-        await updateDoc(contactRef, { Name, Email });
-        onClose();
+        await updateDoc(contactRef, { Name: trimmedName, Email: trimmedEmail });
         toast.success("Contact updated successfully!");
       } else {
-        // Add new contact
+        // Check for duplicate contacts before adding
         const contactRef = collection(db, "Contacts");
-        await addDoc(contactRef, { Name, Email });
-        onClose();
+        const existingContacts = await getDocs(contactRef);
+  
+        const duplicate = existingContacts.docs.some(
+          (doc) => doc.data().Name === trimmedName && doc.data().Email === trimmedEmail
+        );
+  
+        if (duplicate) {
+          toast.error("This contact already exists!");
+          return;
+        }
+  
+        // Add new contact
+        await addDoc(contactRef, { Name: trimmedName, Email: trimmedEmail });
         toast.success("New contact added successfully!");
       }
+  
+      onClose(); // Close modal after saving
     } catch (error) {
       console.error(`Error: ${error}`);
+      toast.error("Something went wrong!");
     }
-
-    onClose(); // Close modal after saving
   };
+  
+
 
   return (
     <div className="blur-div">

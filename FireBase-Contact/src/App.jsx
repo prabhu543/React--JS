@@ -12,6 +12,7 @@ import Input from "./Components/Input";
 import Add from "./Components/Add";
 import User from "./Components/User";
 import Modal from "./Components/Modal";
+import NotFound from "./Components/NotFound";
 
 const App = () => {
   const [Contacts, setContacts] = useState([]);
@@ -42,22 +43,40 @@ const App = () => {
     getContacts();
   }, []);
 
+const filterContacts = (e) =>{
+  const value = e.target.value;
+
+  const contactsRef = collection(db, "Contacts");
+  onSnapshot(contactsRef,(snapShot)=>{
+    const contactList = snapShot.docs.map((doc) => {
+      return {
+        id: doc.id,
+        ...doc.data(),
+      };
+    });
+    const filteredContacts = contactList.filter(contact => contact.Name.toLowerCase().includes(value.toLowerCase()))
+    setContacts(filteredContacts);
+    return filteredContacts;
+  })
+}
+
   return (
     <>
       <Main>
         <Header />
         <div className="container">
-          <Input />
+          <Input filterContacts = { filterContacts }/>
           <Add onOpen={onOpen} />
         </div>
         <div className="hero">
-          {Contacts.map((user) => {
+          {Contacts.length <= 0 ? <NotFound/> : Contacts.map((user) => {
             return <User Contacts = {user} key={user.id} />;
           })}
         </div>
+        
         {isOpen && <Modal onClose={onClose}/>}
         <ToastContainer
-        className={toast}
+        className="toast"
         />
       </Main>
     </>

@@ -79,7 +79,11 @@ body{
 
   display: flex;
   flex-direction: column;
+  justify-content: start;
   gap: 10px;
+
+  /* background-color: red; */
+  height: 80%;
 }
 .userDiv{
   width: 100%;
@@ -185,9 +189,48 @@ label{
   border-radius: 5px;
 }
 
-.toast{
+
+/* Default (for Mobile) */
+.Toastify {
   position: absolute;
-  top:80%;
-  left:50%;
-  transform: translate(-50%,-50%);
+  bottom: 45%;
+  left: 45%;
+  transform: translateX(-50%);
+  /* background-color: red; */
+  height: fit-content;
+  width: 90%; /* Adjust width for mobile */
+}
+
+/* Progress Bar */
+.Toastify__progress-bar {
+  background: #0bf665 !important; /* Custom progress bar color */
+}
+
+/* Media Query for Desktop */
+@media (min-width: 768px) {
+  .Toastify {
+    bottom: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@media (max-width:768px) {
+  .Toastify__toast-container{
+    padding: 20px;
+    gap: 20px;
+  }  
+}
+
+.notFound{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  
+  margin: auto 10px;
+  text-transform: capitalize;
+  color: #fff;
+}
+.notFound img{
+  width: 12%;
 }
